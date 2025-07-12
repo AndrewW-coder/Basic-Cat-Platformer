@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://d4cbao2i7rh4m"]
+
+[ext_resource type="Texture2D" uid="uid://b36a3rffisq8y" path="res://Sprites/water_spike_anim.png" id="2_18m8v"]
+[ext_resource type="PackedScene" uid="uid://bstnsk0alslal" path="res://Scenes/kill_zone.tscn" id="2_jjhnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjhnn"]
+size = Vector2(16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54dxb"]
+atlas = ExtResource("2_18m8v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p507"]
+atlas = ExtResource("2_18m8v")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52anb"]
+atlas = ExtResource("2_18m8v")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6ag3"]
+atlas = ExtResource("2_18m8v")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5srge"]
+atlas = ExtResource("2_18m8v")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcie2"]
+atlas = ExtResource("2_18m8v")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdrdc"]
+atlas = ExtResource("2_18m8v")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_no2hi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54dxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p507")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52anb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6ag3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5srge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcie2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdrdc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="WaterSpike" type="Node2D"]
+
+[node name="KillZone" parent="." instance=ExtResource("2_jjhnn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_jjhnn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_no2hi")
+autoplay = "default"
+frame_progress = 0.30719
